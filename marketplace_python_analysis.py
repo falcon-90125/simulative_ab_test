@@ -77,9 +77,10 @@ uad["day"] = (pd.to_datetime(uad["date"]) - pd.Timestamp("2026-01-01")).dt.days
 print(f"user_activity_data: {len(uad)} rows, {uad['user_id'].nunique()} users")
 print(f"experiment_data:    {len(exp)} rows, {exp['user_id'].nunique()} users")
 
+# ДВУСТОРОННИЙ тест
 ALPHA = 0.05
 POWER = 0.80
-Z_ALPHA = norm_ppf(1 - ALPHA/2)
+Z_ALPHA = norm_ppf(1 - ALPHA/2) # (z_{α/2}, двусторонний)
 Z_BETA  = norm_ppf(POWER)
 Z_SUM   = Z_ALPHA + Z_BETA
 print(f"\nz_alpha/2={Z_ALPHA:.4f}, z_beta={Z_BETA:.4f}, sum={Z_SUM:.4f}")
